@@ -1,0 +1,204 @@
+<%-- 
+    Document   : team
+    Created on : Jul 12, 2022, 8:00:16 PM
+    Author     : Admin
+--%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>FPT Showroom</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+				<header id="header">
+					<div class="inner">
+
+						<!-- Logo -->
+							<a href="index.html" class="logo">
+								<span class="fa fa-car"></span> <span class="title">FPT Showroom Website</span>
+							</a>
+
+						<!-- Nav -->
+							<nav>
+								<ul>
+									<li><a href="#menu">Menu</a></li>
+								</ul>
+							</nav>
+
+					</div>
+				</header>
+
+			<!-- Menu -->
+<!--				<nav id="menu">
+					<h2>Menu</h2>
+					<ul>
+						<li><a href="index.html">Home</a></li>
+
+						<li><a href="cars.html">Cars</a></li>
+
+						<li>
+							<a href="#" class="dropdown-toggle">About</a>
+
+							<ul>
+								<li><a href="about.html" >About Us</a></li>
+								<li><a href="team.html" class="active">Team</a></li>
+								<li><a href="blog.html">Blog</a></li>
+								<li><a href="testimonials.html">Testimonials</a></li>
+								<li><a href="faq.html">FAQ</a></li>
+								<li><a href="terms.html">Terms</a></li>
+							</ul>
+						</li>
+						<li><a href="contact.html">Contact Us</a></li>
+					</ul>
+				</nav>-->
+                                <nav id="menu">
+                <h2>Menu</h2>
+                <ul>
+                    <li><a href="HomeServlet" class="active">Home</a></li>
+
+                    <li><a href="cars.jsp">Cars</a></li>
+
+                    <li>
+                        <a href="#" class="dropdown-toggle">About</a>
+
+                        <ul>
+                            <li><a href="about.jsp">About Us</a></li>
+                            <li><a href="AdminServlet">Team</a></li>
+                            <li><a href="BlogServlet">Blog</a></li>
+                            <!--                            <li><a href="testimonials.jsp">Testimonials</a></li>-->
+                            <li><a href="faq.jsp">FAQ</a></li>
+                            <li><a href="terms.jsp">Terms</a></li>
+                                <c:if test="${sessionScope.ROLEADMIN==1 || sessionScope.ROLE!=null}">
+
+                                <li><a href="ReadMessage">Message</a></li>
+                                </c:if>
+
+                        </ul>
+                    </li>
+                    <li><a href="contact.jsp">Contact Us</a></li>
+                    <li><a href="RegisToDrive.jsp">Registered To Test Car</a></li>
+                        <c:if test="${sessionScope.ROLE==null && sessionScope.ROLEUSER==null}">
+                        <li><a href="login.jsp">Login</a></li>
+                        </c:if>
+
+                    <c:if test="${sessionScope.ROLE!=null ||sessionScope.ROLEUSER!=null }">
+                        <li><a href="LogoutServlet">Logout</a></li>
+                        </c:if>
+
+                    <c:if test="${sessionScope.ROLEADMIN==1 || sessionScope.ROLE!=null}">
+                        <li><a href="AdminManageServlet">Manage</a></li>
+                        </c:if>
+                </ul>
+            </nav>
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<h1>Team</h1>
+
+							<div class="image main">
+								<img src="images/banner-image-2-1920x500.jpg" class="img-fluid" alt="" />
+							</div>
+
+							<div class="container">
+								<div class="row">
+                                                                    <c:forEach items="${listAdmin}" var="a">
+									<div class="col-sm-4 text-center">
+										<img src="${a.imageURL}" class="img-fluid" alt="" />
+
+										<h2 class="m-n">${a.adminName}</h2>
+
+										<p>
+											Admin <br>
+
+											<a href="#"><i class="fa fa-twitter"></i></a> &nbsp;
+											<a href="#"><i class="fa fa-linkedin"></i></a>&nbsp;
+                                                                                        <a href="#"><i class="fa fa-facebook"></i></a>&nbsp;
+										</p>
+									</div>
+                                                                            </c:forEach>
+<!--									<div class="col-sm-3 text-center">
+										<img src="images/author-image-2-646x680.jpg" class="img-fluid" alt="" />
+
+										<h2 class="m-n">Jane Doe</h2>
+
+										<p>
+											Customer Support <br>
+
+											<a href="#"><i class="fa fa-twitter"></i></a> &nbsp;
+											<a href="#"><i class="fa fa-linkedin"></i></a>
+										</p>
+									</div>
+
+									<div class="col-sm-3 text-center">
+										<img src="images/author-image-3-646x680.jpg" class="img-fluid" alt="" />
+
+										<h2 class="m-n">Merry Smith</h2>
+
+										<p>
+											Social Media <br>
+
+											<a href="#"><i class="fa fa-twitter"></i></a> &nbsp;
+											<a href="#"><i class="fa fa-linkedin"></i></a>
+										</p>
+									</div>
+
+									<div class="col-sm-3 text-center">
+										<img src="images/author-image-4-646x680.jpg" class="img-fluid" alt="" />
+
+										<h2 class="m-n">Jack Dawn</h2>
+
+										<p>
+											Social Media <br>
+
+											<a href="#"><i class="fa fa-twitter"></i></a> &nbsp;
+											<a href="#"><i class="fa fa-linkedin"></i></a>
+										</p>
+									</div>-->
+								</div>
+							</div>
+						</div>
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<section>
+								<ul class="icons">
+									<li><a href="#" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="#" class="icon style2 fa-facebook"><span class="label">Facebook</span></a></li>
+									<li><a href="#" class="icon style2 fa-instagram"><span class="label">Instagram</span></a></li>
+									<li><a href="#" class="icon style2 fa-linkedin"><span class="label">LinkedIn</span></a></li>
+								</ul>
+
+								&nbsp;
+							</section>
+
+<!--							<ul class="copyright">
+								<li>Copyright © 2020 Company Name </li>
+								<li>Template by: <a href="https://www.phpjabbers.com/">PHPJabbers.com</a></li>
+							</ul>-->
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/main.js"></script>
+	</body>
+</html>
